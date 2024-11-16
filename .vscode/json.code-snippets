@@ -1,0 +1,55 @@
+{
+  "Create Image Attribute Field": {
+    "prefix": "rkt:image",
+    "body": [
+      "\"${1:fieldname}\": {"
+      "  \"type\": \"object\","
+      "  \"default\": {"
+      "    \"id\": 0,"
+      "    \"url\": \"\""
+      "  },"
+      "  \"rktblk\": {"
+      "    \"type\": \"image\","
+      "    \"label\": \"${2:Field Label}\""
+      "  }"
+      "}"
+    ],
+    "description": "Add an image field to block.json"
+  },
+  "Create Link Attribute Field": {
+    "prefix": "rkt:link",
+    "body": [
+      "\"${1:fieldname}\": {"
+      "  \"type\": \"object\","
+      "  \"default\": {"
+      "    \"title\": \"\","
+      "    \"target\": \"\","
+      "    \"url\": \"\""
+      "  },"
+      "  \"rktblk\": {"
+      "    \"type\": \"link\","
+      "    \"label\": \"${2:Field Label}\""
+      "  }"
+      "}"
+    ],
+    "description": "Add an link field to block.json"
+  },
+  "Create Select Attribute Field": {
+    "prefix": "rkt:select",
+    "body": [
+      "\"${1:fieldname}\": {"
+      "  \"type\": \"string\","
+      "  \"enum\": [\"${2:option1}\",\"${3:option2}\"],"
+      "  \"default\": \"${2:option1}\", "
+      "  \"rktblk\": {"
+      "    \"label\": \"${4:Field Label}\","
+      "    \"options\": ["
+      "      {\"label\" : \"Option 1\", \"value\": \"${2:option1}\"},"
+      "      {\"label\" : \"Option 2\", \"value\": \"${3:option2}\"}"
+      "    ]"
+      "  }"
+      "}"
+    ],
+    "description": "Add an select field to block.json"
+  }
+}

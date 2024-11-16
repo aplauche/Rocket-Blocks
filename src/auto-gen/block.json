@@ -1,0 +1,72 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "rktblk/auto-gen",
+	"version": "0.1.0",
+	"title": "Auto Generated Fields",
+	"category": "text",
+	"icon": "smiley",
+	"description": "Testing an approach to render fields based on block.json",
+	"example": {},
+	"supports": {
+		"html": false,
+		"color": {
+			"background": true
+		}
+	},
+	"attributes": {
+		"choice":{
+			"type": "string",
+			"enum": ["1", "2", "3"],
+			"default": "1",
+			"rktblk": {
+				"label": "My Select",
+				"options": [
+					{"label" : "Option 1", "value": "1"},
+					{"label" : "Option 2", "value": "2"},
+					{"label" : "Option 3", "value": "3"}
+				]
+			}
+		},
+		"show":{
+			"type":"boolean",
+			"default": false,
+			"rktblk": {
+				"label": "Toggle a setting"
+			}
+		},
+		"count": {
+			"type": "number",
+			"default": 3,
+			"rktblk": true
+		},
+		"imageSelect": {
+			"type": "object",
+			"default": {
+				"id": 0,
+				"url": ""
+			},
+			"rktblk": {
+				"type": "image",
+				"label": "Background Image"
+			}
+		},
+		"exampleLink": {
+			"type": "object",
+			"default": {
+				"url": "",
+				"title": "",
+				"target": ""
+			},
+			"rktblk":{
+				"type": "link"
+			}
+		}
+	},
+	"textdomain": "auto-gen",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

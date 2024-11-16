@@ -1,0 +1,1 @@
+<?php // Serenity now! ?>
