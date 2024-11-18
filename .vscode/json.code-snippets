@@ -1,4 +1,32 @@
 {
+  "Create Text Attribute Field": {
+    "prefix": "rkt:text",
+    "body": [
+      "\"${1:fieldname}\": {"
+      "  \"type\": \"string\","
+      "  \"default\": \"\","
+      "  \"rktblk\": {"
+      "    \"type\": \"text\","
+      "    \"label\": \"${2:Field Label}\""
+      "  }"
+      "}"
+    ],
+    "description": "Add a basic text input field to block.json"
+  },
+  "Create Number Attribute Field": {
+    "prefix": "rkt:number",
+    "body": [
+      "\"${1:fieldname}\": {"
+      "  \"type\": \"number\","
+      "  \"default\": 0,"
+      "  \"rktblk\": {"
+      "    \"type\": \"number\","
+      "    \"label\": \"${2:Field Label}\""
+      "  }"
+      "}"
+    ],
+    "description": "Add a basic number input field to block.json"
+  },
   "Create Image Attribute Field": {
     "prefix": "rkt:image",
     "body": [

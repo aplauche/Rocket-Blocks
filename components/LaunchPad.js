@@ -44,7 +44,7 @@ export default function LaunchPad({attributes, setAttributes, fieldName, field})
   /**
    * Simple String Field Types with Text UI
    */
-  if(field.type === "string" && field.rktblk?.type === "input"){
+  if(field.type === "string" && field.rktblk?.type === "text"){
     return <TextInput {...props} />
   }
 
