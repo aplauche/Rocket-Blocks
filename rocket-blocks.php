@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name:       Rocket Blocks
  * Description:       Starter set up for rapidly developing native Gutenberg blocks
@@ -16,27 +17,39 @@
 namespace RKTBLK;
 
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
 /**
- * Registers the block using the metadata loaded from the `block.json` file.
- * Behind the scenes, it registers also all assets so they can be enqueued
- * through the block editor in the corresponding context.
+ * Registers all block folders found in the `build` directory.
  *
- * @see https://developer.wordpress.org/reference/functions/register_block_type/
+ * @return void
  */
-function init() {
-	register_block_type( __DIR__ . '/build/auto-gen' );
-}
-add_action( 'init', '\RKTBLK\init' );
-
-function add_bootstrap(){
-	wp_enqueue_style( 'bootstrap5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', [], '5.0.2', 'all' );
-	wp_enqueue_script( 'bootstrap5js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', [], '5.0.2' );
+function register_blocks()
+{
+	$block_folders = glob(__DIR__ . '/build/*', GLOB_ONLYDIR);
+	foreach ($block_folders as $block_folder) {
+		register_block_type($block_folder);
+	}
 }
 
-add_action('wp_enqueue_scripts', '\RKTBLK\add_bootstrap');
+add_action('init', __NAMESPACE__ . '\register_blocks');
+
+function add_bootstrap()
+{
+	wp_enqueue_style('bootstrap5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', [], '5.0.2', 'all');
+	wp_enqueue_script('bootstrap5js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', [], '5.0.2');
+}
+
+add_action('wp_enqueue_scripts', __NAMESPACE__ . '\add_bootstrap');
 
 
+/**s
+ * Registers an editor stylesheet for bootstrap.
+ */
+function add_editor_styles()
+{
+	add_editor_style("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css");
+}
+add_action('after_setup_theme', __NAMESPACE__ .  '\add_editor_styles');
