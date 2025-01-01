@@ -16,10 +16,6 @@ To access your local wordpress install admin you can use the default "admin" / "
 
 Create block is packaged with the plugin. Simply run `npm run add-block` and a wizard will guide you and place the block files in a new folder under the `src` directory.
 
-NOTE: YOU STILL NEED TO REGISTER THE BLOCK TYPE AFTER ADDING IT!
-
-Go into the `rocket-blocks.php` and make sure the new block is registered if it is not showing up in the admin.
-
 ### Long term goals
 
 Ideally we can create a framework style setup that allows quick native block creation approaching the ease of ACF.
@@ -40,7 +36,5 @@ It is also possible to package this functionality inside a theme with some sligh
 
 - Plop files for more structured block starter
 - Plop wizard for innerblocks, supports, etc
-- Break apart field generator for easier management
 - Explore more schema/typescript/autocomplete options - maybe console tool that ouputs code?
 - More complex fields - multi image, focal point, color, etc
-- Serverside render by default for editor

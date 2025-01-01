@@ -1,5 +1,4 @@
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { Panel, PanelBody, PanelRow } from '@wordpress/components';
+import { useBlockProps } from '@wordpress/block-editor';
 import ServerSideRender from '@wordpress/server-side-render';
 
 
@@ -19,7 +18,7 @@ export default function Edit(props) {
 			
 			<div { ...useBlockProps() }>
 				<ServerSideRender
-					block="rktblk/auto-gen"
+					block="rktblk/rkt-demo"
 					attributes={ attributes }
 				/>
 			</div> 

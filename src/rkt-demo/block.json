@@ -1,12 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "rktblk/auto-gen",
+	"name": "rktblk/rkt-demo",
 	"version": "0.1.0",
-	"title": "Auto Generated Fields",
+	"title": "RKTBLK Demo Block",
 	"category": "text",
 	"icon": "smiley",
-	"description": "Testing an approach to render fields based on block.json",
+	"description": "Demo block that renders fields based on block.json",
 	"example": {},
 	"supports": {
 		"html": false,

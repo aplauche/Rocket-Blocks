@@ -1,4 +1,3 @@
-import FieldsBuilder from './FieldsBuilderv2';
 import { InspectorControls } from '@wordpress/block-editor';
 import { Panel, PanelBody } from '@wordpress/components';
 import LaunchPad from './LaunchPad';
@@ -9,11 +8,11 @@ export default function RocketBlocks({metadata, attributes, setAttributes}){
     <InspectorControls>
       <Panel>
         <PanelBody>
-          {Object.entries(metadata.attributes).map(([fieldName, field]) => {
+          {Object.entries(metadata.attributes).map(([fieldName, fieldObject]) => {
             return <LaunchPad
                 key={fieldName} 
                 fieldName={fieldName} 
-                field={field}
+                field={fieldObject}
                 attributes={attributes}
                 setAttributes={setAttributes}
               />
