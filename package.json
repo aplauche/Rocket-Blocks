@@ -17,7 +17,8 @@
 		"env:start": "wp-env start",
 		"env:destroy": "wp-env destroy",
 		"env:stop": "wp-env stop",
-		"add:block": "cd src && npx @wordpress/create-block@latest --no-plugin --template ../_block-template --namespace rktblk --category text"
+		"add:block:basic": "cd src && npx @wordpress/create-block@latest --no-plugin --template ../templates/_basic-ssr --namespace rktblk --category text",
+		"add:block:inner": "cd src && npx @wordpress/create-block@latest --no-plugin --template ../templates/_inner-blocks --namespace rktblk --category text"
 	},
 	"devDependencies": {
 		"@wordpress/env": "^10.9.0",
