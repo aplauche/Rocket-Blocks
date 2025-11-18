@@ -1,0 +1,57 @@
+/**
+ * WordPress Dependencies
+ */
+import { useBlockProps, InspectorControls, InnerBlocks } from '@wordpress/block-editor';
+import { Panel, PanelBody, PanelRow } from '@wordpress/components';
+import ServerSideRender from '@wordpress/server-side-render';
+
+
+import './editor.scss';
+
+
+import metadata from './block.json';
+import RocketBlocks from '../../components/RocketBlocks';
+
+
+/**
+ * The edit function describes the structure of your block in the context of the
+ * editor. This represents what the editor will render when the block is used.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
+ */
+export default function Edit(props) {
+
+	const {attributes, setAttributes} = props
+
+	const ALLOWED_BLOCKS = [ 'core/buttons', 'core/paragraph', 'core/heading', 'core/list' ];
+
+	const MY_TEMPLATE = [
+		['core/heading', {placeholder: "This is the heading"}],
+		['core/paragraph', {placeholder: "Lorem Ipsum..."}],
+		['core/buttons', {},
+			[
+				['core/button', {placeholder: "Add Button text..."}],
+				['core/button', {placeholder: "Add Button text..."}],
+			]
+		],
+	];
+
+	return (
+		<>
+			<div { ...useBlockProps() }>
+				<InnerBlocks 
+					allowedBlocks={ ALLOWED_BLOCKS } 
+					template={ MY_TEMPLATE } 
+				/>
+			</div> 
+			
+
+			<RocketBlocks 
+				metadata={metadata} 
+				attributes={attributes}
+				setAttributes={setAttributes} 
+			/>
+		</>
+	);
+}
+
